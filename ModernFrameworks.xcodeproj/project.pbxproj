@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		003F8B5296EAA8ECEF2169B1 /* Pods_ModernFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C909F4A2FECDD74E5247B9CF /* Pods_ModernFrameworks.framework */; };
 		52F4D03C2736D5CE0057CE7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03B2736D5CE0057CE7D /* AppDelegate.swift */; };
 		52F4D03E2736D5CE0057CE7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03D2736D5CE0057CE7D /* SceneDelegate.swift */; };
-		52F4D0402736D5CE0057CE7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03F2736D5CE0057CE7D /* ViewController.swift */; };
+		52F4D0402736D5CE0057CE7D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03F2736D5CE0057CE7D /* MapViewController.swift */; };
 		52F4D0432736D5CE0057CE7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F4D0412736D5CE0057CE7D /* Main.storyboard */; };
 		52F4D0452736D5DB0057CE7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F4D0442736D5DB0057CE7D /* Assets.xcassets */; };
 		52F4D0482736D5DB0057CE7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F4D0462736D5DB0057CE7D /* LaunchScreen.storyboard */; };
@@ -21,7 +21,7 @@
 		52F4D0382736D5CE0057CE7D /* ModernFrameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernFrameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F4D03B2736D5CE0057CE7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F4D03D2736D5CE0057CE7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52F4D03F2736D5CE0057CE7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52F4D03F2736D5CE0057CE7D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		52F4D0422736D5CE0057CE7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52F4D0442736D5DB0057CE7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52F4D0472736D5DB0057CE7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,15 +63,55 @@
 		52F4D03A2736D5CE0057CE7D /* ModernFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52F4D0522736DA7E0057CE7D /* Application */,
+				52F4D0532736DAA00057CE7D /* Presentation */,
+				52F4D0562736DB170057CE7D /* Core */,
+				52F4D0552736DB040057CE7D /* Supporting Files */,
+			);
+			path = ModernFrameworks;
+			sourceTree = "<group>";
+		};
+		52F4D0522736DA7E0057CE7D /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				52F4D03B2736D5CE0057CE7D /* AppDelegate.swift */,
 				52F4D03D2736D5CE0057CE7D /* SceneDelegate.swift */,
-				52F4D03F2736D5CE0057CE7D /* ViewController.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		52F4D0532736DAA00057CE7D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				52F4D03F2736D5CE0057CE7D /* MapViewController.swift */,
 				52F4D0412736D5CE0057CE7D /* Main.storyboard */,
-				52F4D0442736D5DB0057CE7D /* Assets.xcassets */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		52F4D0552736DB040057CE7D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				52F4D0462736D5DB0057CE7D /* LaunchScreen.storyboard */,
 				52F4D0492736D5DB0057CE7D /* Info.plist */,
 			);
-			path = ModernFrameworks;
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52F4D0562736DB170057CE7D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				52F4D0572736DB200057CE7D /* Resources */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		52F4D0572736DB200057CE7D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52F4D0442736D5DB0057CE7D /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B9ED18C4CEDB85B2532FA41C /* Frameworks */ = {
@@ -88,7 +128,6 @@
 				378931F4433D4017BD29649C /* Pods-ModernFrameworks.debug.xcconfig */,
 				7D9F7E7AE761B516AC53E0FC /* Pods-ModernFrameworks.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52F4D0402736D5CE0057CE7D /* ViewController.swift in Sources */,
+				52F4D0402736D5CE0057CE7D /* MapViewController.swift in Sources */,
 				52F4D03C2736D5CE0057CE7D /* AppDelegate.swift in Sources */,
 				52F4D03E2736D5CE0057CE7D /* SceneDelegate.swift in Sources */,
 			);
@@ -357,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ModernFrameworks/Info.plist;
+				INFOPLIST_FILE = "ModernFrameworks/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,7 +415,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = ModernFrameworks/Info.plist;
+				INFOPLIST_FILE = "ModernFrameworks/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
