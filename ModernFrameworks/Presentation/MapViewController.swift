@@ -16,6 +16,8 @@ final class MapViewController: UIViewController {
 	private var coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
 	private var marker: GMSMarker?
 	private var locationManager: CLLocationManager?
+	private var route: GMSPolyline?
+	private var routePath: GMSMutablePath?
 
 	// MARK: - IBOutlets
 
@@ -33,6 +35,10 @@ final class MapViewController: UIViewController {
 	// MARK: - IBAction
 
 	@IBAction func updateLocation(_ sender: Any) {
+		route?.map = nil
+		route = GMSPolyline()
+		routePath = GMSMutablePath()
+		route?.map = mapView
 		locationManager?.startUpdatingLocation()
 	}
 
@@ -44,15 +50,20 @@ final class MapViewController: UIViewController {
 
 	private func configureMap() {
 		mapView.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
-		// mapView.isMyLocationEnabled = true
 	}
 
 	private func configureLocationManager() {
 		locationManager = CLLocationManager()
-		locationManager?.requestWhenInUseAuthorization()
 		locationManager?.delegate = self
+
+		locationManager?.allowsBackgroundLocationUpdates = true
+		locationManager?.pausesLocationUpdatesAutomatically = false
+		locationManager?.startMonitoringSignificantLocationChanges()
+		locationManager?.requestAlwaysAuthorization()
+		locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 	}
 
+	/*
 	private func addMarker(position: CLLocationCoordinate2D) {
 		marker = GMSMarker(position: position)
 		marker?.icon = GMSMarker.markerImage(with: .systemGreen)
@@ -65,19 +76,25 @@ final class MapViewController: UIViewController {
 		marker?.map = nil
 		marker = nil
 	}
-
+	*/
 }
 
 extension MapViewController: CLLocationManagerDelegate {
 
+//	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//		let currentCoordinate = locations[0].coordinate
+//		mapView.animate(toLocation: currentCoordinate)
+//		addMarker(position: currentCoordinate)
+//	   }
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		let currentCoordinate = locations[0].coordinate
-		mapView.animate(toLocation: currentCoordinate)
-		addMarker(position: currentCoordinate)
-	   }
+		guard let location = locations.last else { return }
+		routePath?.add(location.coordinate)
+		route?.path = routePath
+		mapView.animate(toLocation: location.coordinate)
+	}
 
-	   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		   print(error)
-	   }
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print(error)
+	}
 
 }
