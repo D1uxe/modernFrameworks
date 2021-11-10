@@ -7,5 +7,6 @@ target 'ModernFrameworks' do
 
   # Pods for ModernFrameworks
 	pod 'GoogleMaps'
+	pod 'RealmSwift'
 	
 end

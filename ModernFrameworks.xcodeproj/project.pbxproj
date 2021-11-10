@@ -143,6 +143,7 @@
 				52F4D0352736D5CE0057CE7D /* Frameworks */,
 				52F4D0362736D5CE0057CE7D /* Resources */,
 				53EEA079FC74E06AE509477B /* [CP] Copy Pods Resources */,
+				46C79DE81A84E976F2DF9679 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -199,6 +200,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		46C79DE81A84E976F2DF9679 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ModernFrameworks/Pods-ModernFrameworks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ModernFrameworks/Pods-ModernFrameworks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ModernFrameworks/Pods-ModernFrameworks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		53EEA079FC74E06AE509477B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
