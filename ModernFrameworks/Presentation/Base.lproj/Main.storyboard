@@ -38,12 +38,19 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Map" id="Aj1-7f-xTY">
-                        <barButtonItem key="leftBarButtonItem" title="Current" id="a0v-tq-jgd">
-                            <connections>
-                                <action selector="currentLocation:" destination="BYZ-38-t0r" id="QKo-HP-s4n"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Track" id="KLm-LC-v0x">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Current" id="a0v-tq-jgd">
+                                <connections>
+                                    <action selector="currentLocation:" destination="BYZ-38-t0r" id="QKo-HP-s4n"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="PrevTrack" id="cCr-nY-YH0">
+                                <connections>
+                                    <action selector="showPrevTrack:" destination="BYZ-38-t0r" id="UNa-1L-DxC"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Start/StopTrack" id="KLm-LC-v0x">
                             <connections>
                                 <action selector="updateLocation:" destination="BYZ-38-t0r" id="NXK-HM-K0m"/>
                             </connections>
