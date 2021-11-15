@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		003F8B5296EAA8ECEF2169B1 /* Pods_ModernFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C909F4A2FECDD74E5247B9CF /* Pods_ModernFrameworks.framework */; };
+		52B702A9274298CA00C849AB /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B702A8274298CA00C849AB /* AuthViewController.swift */; };
+		52B702AD274299DF00C849AB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B702AC274299DF00C849AB /* Auth.storyboard */; };
+		52B702B327429CBE00C849AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B702B227429CBE00C849AB /* User.swift */; };
+		52B702B627429D0500C849AB /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B702B527429D0500C849AB /* Path.swift */; };
+		52B860942742B61200764BAD /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B860932742B61200764BAD /* Registration.storyboard */; };
+		52B860972742B6C000764BAD /* RegistrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B860962742B6C000764BAD /* RegistrViewController.swift */; };
+		52B8609C2742B80B00764BAD /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B8609B2742B80B00764BAD /* Routable.swift */; };
 		52F4D03C2736D5CE0057CE7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03B2736D5CE0057CE7D /* AppDelegate.swift */; };
 		52F4D03E2736D5CE0057CE7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03D2736D5CE0057CE7D /* SceneDelegate.swift */; };
 		52F4D0402736D5CE0057CE7D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F4D03F2736D5CE0057CE7D /* MapViewController.swift */; };
@@ -18,6 +25,13 @@
 
 /* Begin PBXFileReference section */
 		378931F4433D4017BD29649C /* Pods-ModernFrameworks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModernFrameworks.debug.xcconfig"; path = "Target Support Files/Pods-ModernFrameworks/Pods-ModernFrameworks.debug.xcconfig"; sourceTree = "<group>"; };
+		52B702A8274298CA00C849AB /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		52B702AC274299DF00C849AB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		52B702B227429CBE00C849AB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		52B702B527429D0500C849AB /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		52B860932742B61200764BAD /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		52B860962742B6C000764BAD /* RegistrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrViewController.swift; sourceTree = "<group>"; };
+		52B8609B2742B80B00764BAD /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Routable.swift; path = ModernFrameworks/Presentation/Scenes/Registration/Routable.swift; sourceTree = SOURCE_ROOT; };
 		52F4D0382736D5CE0057CE7D /* ModernFrameworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernFrameworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F4D03B2736D5CE0057CE7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F4D03D2736D5CE0057CE7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +56,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		522B5838274298330094564D /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				52F4D03F2736D5CE0057CE7D /* MapViewController.swift */,
+				52F4D0412736D5CE0057CE7D /* Main.storyboard */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		522B583A2742983C0094564D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				52B702A8274298CA00C849AB /* AuthViewController.swift */,
+				52B702AC274299DF00C849AB /* Auth.storyboard */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		52B702AB274298DC00C849AB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				522B5838274298330094564D /* Map */,
+				52B860922742B5EB00764BAD /* Registration */,
+				522B583A2742983C0094564D /* Auth */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		52B702AF27429C8B00C849AB /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
+				52B702B027429CA400C849AB /* Model */,
+			);
+			path = "Business logic";
+			sourceTree = "<group>";
+		};
+		52B702B027429CA400C849AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52B702B127429CAB00C849AB /* Entity */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		52B702B127429CAB00C849AB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				52B702B227429CBE00C849AB /* User.swift */,
+				52B702B527429D0500C849AB /* Path.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		52B860922742B5EB00764BAD /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				52B860932742B61200764BAD /* Registration.storyboard */,
+				52B860962742B6C000764BAD /* RegistrViewController.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		52B860992742B7D000764BAD /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				52B8609A2742B7D700764BAD /* Router */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		52B8609A2742B7D700764BAD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				52B8609B2742B80B00764BAD /* Routable.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		52F4D02F2736D5CE0057CE7D = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +157,7 @@
 			children = (
 				52F4D0522736DA7E0057CE7D /* Application */,
 				52F4D0532736DAA00057CE7D /* Presentation */,
+				52B702AF27429C8B00C849AB /* Business logic */,
 				52F4D0562736DB170057CE7D /* Core */,
 				52F4D0552736DB040057CE7D /* Supporting Files */,
 			);
@@ -83,8 +176,7 @@
 		52F4D0532736DAA00057CE7D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				52F4D03F2736D5CE0057CE7D /* MapViewController.swift */,
-				52F4D0412736D5CE0057CE7D /* Main.storyboard */,
+				52B702AB274298DC00C849AB /* Scenes */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -101,6 +193,7 @@
 		52F4D0562736DB170057CE7D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				52B860992742B7D000764BAD /* Foundation */,
 				52F4D0572736DB200057CE7D /* Resources */,
 			);
 			path = Core;
@@ -191,6 +284,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B860942742B61200764BAD /* Registration.storyboard in Resources */,
+				52B702AD274299DF00C849AB /* Auth.storyboard in Resources */,
 				52F4D0482736D5DB0057CE7D /* LaunchScreen.storyboard in Resources */,
 				52F4D0452736D5DB0057CE7D /* Assets.xcassets in Resources */,
 				52F4D0432736D5CE0057CE7D /* Main.storyboard in Resources */,
@@ -263,9 +358,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52B860972742B6C000764BAD /* RegistrViewController.swift in Sources */,
+				52B702A9274298CA00C849AB /* AuthViewController.swift in Sources */,
 				52F4D0402736D5CE0057CE7D /* MapViewController.swift in Sources */,
 				52F4D03C2736D5CE0057CE7D /* AppDelegate.swift in Sources */,
+				52B702B327429CBE00C849AB /* User.swift in Sources */,
+				52B702B627429D0500C849AB /* Path.swift in Sources */,
 				52F4D03E2736D5CE0057CE7D /* SceneDelegate.swift in Sources */,
+				52B8609C2742B80B00764BAD /* Routable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

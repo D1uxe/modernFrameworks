@@ -11,7 +11,7 @@
         <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="ModernFrameworks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="ModernFrameworks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -50,11 +50,18 @@
                                 </connections>
                             </barButtonItem>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" title="Start/StopTrack" id="KLm-LC-v0x">
-                            <connections>
-                                <action selector="updateLocation:" destination="BYZ-38-t0r" id="NXK-HM-K0m"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Exit" id="BHz-Bp-It5">
+                                <connections>
+                                    <action selector="exit:" destination="BYZ-38-t0r" id="nn0-bY-9Wj"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Start/StopTrack" id="KLm-LC-v0x">
+                                <connections>
+                                    <action selector="updateLocation:" destination="BYZ-38-t0r" id="NXK-HM-K0m"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

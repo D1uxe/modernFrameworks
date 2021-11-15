@@ -10,7 +10,7 @@ import GoogleMaps
 import CoreLocation
 import RealmSwift
 
-final class MapViewController: UIViewController {
+final class MapViewController: UIViewController, Routable {
 
 	// MARK: - Private Properties
 
@@ -54,6 +54,11 @@ final class MapViewController: UIViewController {
 
 	@IBAction func currentLocation(_ sender: Any) {
 		locationManager?.requestLocation()
+	}
+
+	@IBAction func exit(_ sender: Any) {
+		UserDefaults.standard.set(false, forKey: "isLogin")
+		navigationController?.setViewControllers([AuthViewController.instantiate(fromStoryboard: "Auth")], animated: true)
 	}
 
 	@IBAction func showPrevTrack(_ sender: Any) {
@@ -136,47 +141,6 @@ extension MapViewController: CLLocationManagerDelegate {
 
 }
 
-class Location: Object {
-	@Persisted var latitude = 0.0
-	@Persisted var longitude = 0.0
-
-	var coordinate: CLLocationCoordinate2D {
-		return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-	}
-
-	convenience init(coordinate: CLLocationCoordinate2D) {
-		self.init()
-		latitude = coordinate.latitude
-		longitude = coordinate.longitude
-	}
-}
-
-class Path: Object {
-	@Persisted var id = 0
-	@Persisted var coordinates = List<Location>()
-
-	/* Если объект Realm создавать внутри, карты почему-то не загружаются...
-	Просто белый экран..
-
-	private let myRealm = try! Realm()
-
-	func write() {
-			try! myRealm.write {
-				myRealm.add(self, update: .all)
-			}
-		}
-
-		func read() -> Results<Path> {
-			myRealm.objects(Path.self)
-		}
-	*/
-
-	override class func primaryKey() -> String? {
-		"id"
-	}
-}
-
-
 extension MapViewController {
 
 	func showAlert(title: String, message: String ) {
@@ -184,7 +148,7 @@ extension MapViewController {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
 		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action) -> Void in
-			self.locationManager?.stopUpdatingLocation()
+			self.stopUpdateAndSaveLocation()
 			self.isTracking.toggle()
 			self.drawPreviousTrack()
 		}))
