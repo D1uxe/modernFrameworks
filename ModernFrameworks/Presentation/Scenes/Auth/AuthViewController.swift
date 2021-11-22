@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class AuthViewController: UIViewController, Routable {
 
 	@IBOutlet var loginTextField: UITextField!
 	@IBOutlet var passwordTextField: UITextField!
 	@IBOutlet var loginButton: UIButton!
+	@IBOutlet var registerButton: UIButton!
 	@IBOutlet var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+		configureLoginBindings()
     }
 
 	// MARK: - Private Methods
@@ -40,5 +44,20 @@ class AuthViewController: UIViewController, Routable {
 		present(RegistrViewController.instantiate(fromStoryboard: "Registration"), animated: true, completion: nil)
 
 	}
+
+	private func configureLoginBindings() {
+			Observable
+				.combineLatest(
+					loginTextField.rx.text,
+					passwordTextField.rx.text
+				)
+				.map { login, password in
+					return !(login ?? "").isEmpty && (password ?? "").count >= 6
+				}
+				.bind { [weak loginButton, weak registerButton ] inputFilled in
+					loginButton?.isEnabled = inputFilled
+					registerButton?.isEnabled = inputFilled
+			}
+		}
 
 }

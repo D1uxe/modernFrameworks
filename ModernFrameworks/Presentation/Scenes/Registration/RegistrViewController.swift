@@ -34,7 +34,6 @@ class RegistrViewController: UIViewController, Routable {
 			BaseRealm.write(objects: [user])
 			// делаем переход на логин
 			dismiss(animated: true, completion: nil)
-			//present(AuthViewController.instantiate(fromStoryboard: "Auth"), animated: true, completion: nil)
 		}
 	}
 
