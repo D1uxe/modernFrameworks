@@ -16,7 +16,7 @@ final class MapViewController: UIViewController, Routable {
 
 	private var coordinate = CLLocationCoordinate2D(latitude: 55.753215, longitude: 37.622504)
 	private var marker: GMSMarker?
-	private var locationManager: CLLocationManager?
+	private let locationManager = LocationManager.instance
 	private var route: GMSPolyline?
 	private var routePath: GMSMutablePath?
 	private var path: Path = Path()
@@ -46,14 +46,14 @@ final class MapViewController: UIViewController, Routable {
 			route = GMSPolyline()
 			routePath = GMSMutablePath()
 			route?.map = mapView
-			locationManager?.startUpdatingLocation()
+			locationManager.startUpdatingLocation()
 		case false:
 			stopUpdateAndSaveLocation()
 		}
 	}
 
 	@IBAction func currentLocation(_ sender: Any) {
-		locationManager?.requestLocation()
+		locationManager.requestLocation()
 	}
 
 	@IBAction func exit(_ sender: Any) {
@@ -76,18 +76,20 @@ final class MapViewController: UIViewController, Routable {
 	}
 
 	private func configureLocationManager() {
-		locationManager = CLLocationManager()
-		locationManager?.delegate = self
-
-		locationManager?.allowsBackgroundLocationUpdates = true
-		locationManager?.pausesLocationUpdatesAutomatically = false
-		locationManager?.startMonitoringSignificantLocationChanges()
-		locationManager?.requestAlwaysAuthorization()
-		locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+		locationManager
+			.location
+			.asObserver()
+			.bind { [weak self ] location in
+				guard let location = location else { return }
+				self?.routePath?.add(location.coordinate)
+				self?.path.coordinates.append(Location(coordinate: location.coordinate))
+				self?.route?.path = self?.routePath
+				self?.mapView.animate(toLocation: location.coordinate)
+			}
 	}
 
 	private func stopUpdateAndSaveLocation() {
-		locationManager?.stopUpdatingLocation() // Почему после этой команды отслеживание не останавливается полностью? А как бы карта продолжает время от времени показывать позицию(срабатывает сам по себе делегат didUpdateLocations)
+		locationManager.stopUpdatingLocation() // Почему после этой команды отслеживание не останавливается полностью? А как бы карта продолжает время от времени показывать позицию(срабатывает сам по себе делегат didUpdateLocations)
 		let realm = try! Realm()
 		try! realm.write {
 			realm.add(path, update: .all)
@@ -123,22 +125,6 @@ final class MapViewController: UIViewController, Routable {
 	marker = nil
 	}
 	*/
-}
-
-extension MapViewController: CLLocationManagerDelegate {
-
-	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-		guard let location = locations.last else { return }
-		routePath?.add(location.coordinate)
-		path.coordinates.append(Location(coordinate: location.coordinate))
-		route?.path = routePath
-		mapView.animate(toLocation: location.coordinate)
-	}
-
-	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-		print(error)
-	}
-
 }
 
 extension MapViewController {

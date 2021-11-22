@@ -56,7 +56,6 @@ class AuthViewController: UIViewController, Routable {
 				}
 				.bind { [weak loginButton, weak registerButton ] inputFilled in
 					loginButton?.isEnabled = inputFilled
-					registerButton?.isEnabled = inputFilled
 			}
 		}
 
