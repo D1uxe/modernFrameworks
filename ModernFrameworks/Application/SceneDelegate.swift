@@ -19,7 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		
 		let controller: UIViewController
 			  if UserDefaults.standard.bool(forKey: "isLogin") {
-				print("sldkfjalskdfhlkhakljsdhflksjdhflkjsadhflkjsadf")
 				controller = MapViewController.instantiate(fromStoryboard: "Main")
 			  } else {
 				controller = AuthViewController.instantiate(fromStoryboard: "Auth")
@@ -27,6 +26,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			  window?.rootViewController = UINavigationController(rootViewController: controller)
 
 			  window?.makeKeyAndVisible()
+
+		NotificationService.shared.checkForAuth {
+			switch $0 {
+			case .notDetermined:
+				NotificationService.shared.request()
+			default: break
+			}
+		}
+
 	}
 
 	func sceneDidDisconnect(_ scene: UIScene) {
@@ -52,11 +60,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	}
 
 	func sceneDidEnterBackground(_ scene: UIScene) {
-		// Called as the scene transitions from the foreground to the background.
-		// Use this method to save data, release shared resources, and store enough scene-specific state information
-		// to restore the scene back to its current state.
-	}
+		NotificationService.shared.checkForAuth {
+			switch $0 {
+			case .authorized:
+				NotificationService.shared.sendNotificationRequest()
+			default: break
+			}
+		}
 
+	}
 
 }
 

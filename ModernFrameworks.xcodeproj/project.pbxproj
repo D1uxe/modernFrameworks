@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003F8B5296EAA8ECEF2169B1 /* Pods_ModernFrameworks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C909F4A2FECDD74E5247B9CF /* Pods_ModernFrameworks.framework */; };
+		5289ABB72755365C00D31D3D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5289ABB62755365C00D31D3D /* NotificationService.swift */; };
 		52ADBAE2274BF42B0081DD5A /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52ADBAE1274BF42B0081DD5A /* LocationManager.swift */; };
 		52B702A9274298CA00C849AB /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B702A8274298CA00C849AB /* AuthViewController.swift */; };
 		52B702AD274299DF00C849AB /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B702AC274299DF00C849AB /* Auth.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		378931F4433D4017BD29649C /* Pods-ModernFrameworks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ModernFrameworks.debug.xcconfig"; path = "Target Support Files/Pods-ModernFrameworks/Pods-ModernFrameworks.debug.xcconfig"; sourceTree = "<group>"; };
+		5289ABB62755365C00D31D3D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		52ADBAE1274BF42B0081DD5A /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		52B702A8274298CA00C849AB /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		52B702AC274299DF00C849AB /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -74,6 +76,14 @@
 				52B702AC274299DF00C849AB /* Auth.storyboard */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		5289ABB52755364A00D31D3D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				5289ABB62755365C00D31D3D /* NotificationService.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 		52ADBAE0274BF40A0081DD5A /* Location Manager */ = {
@@ -131,6 +141,7 @@
 		52B860992742B7D000764BAD /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				5289ABB52755364A00D31D3D /* Notification */,
 				52ADBAE0274BF40A0081DD5A /* Location Manager */,
 				52B8609A2742B7D700764BAD /* Router */,
 			);
@@ -377,6 +388,7 @@
 				52B702B627429D0500C849AB /* Path.swift in Sources */,
 				52F4D03E2736D5CE0057CE7D /* SceneDelegate.swift in Sources */,
 				52B8609C2742B80B00764BAD /* Routable.swift in Sources */,
+				5289ABB72755365C00D31D3D /* NotificationService.swift in Sources */,
 				52ADBAE2274BF42B0081DD5A /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,6 +548,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
@@ -556,6 +569,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = NO;
 			};
 			name = Release;
 		};
